@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/29 10:49:35 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 13:33:51 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/28 18:37:50 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	{
 		if (content)
 		{
-			tmp->content = (void *)content;
+			tmp->content = malloc(sizeof(content) * content_size);
 			tmp->content_size = content_size;
 			tmp->next = NULL;
 		}

@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 16:44:49 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 13:19:22 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/28 18:31:55 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 void	*ft_memalloc(size_t size)
 {
-	char	*tmp;
+	void	*tmp;
 
-	tmp = (char *)malloc(sizeof(char) * size);
+	tmp = malloc(size);
 	if (tmp)
 	{
 		ft_bzero(tmp, size);
-		return ((void *)tmp);
+		return (tmp);
 	}
 	return (NULL);
 }

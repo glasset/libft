@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:44:40 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 14:20:07 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/28 18:36:03 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ char			**ft_strsplit(char const *s, char c)
 	t[0] = 0;
 	q = ft_count(s, c);
 	tmp = (char **)malloc(sizeof(char *) * (q + 1));
+	if (!tmp)
+	{
+		return NULL;
+	}
 	while (*s && q > t[0])
 	{
 		t[1] = 0;
