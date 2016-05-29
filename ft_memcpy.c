@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 16:17:07 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 13:20:42 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 17:05:42 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	*ft_memcpy(void *s1, const void *s2, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		*tmp1 = *tmp2;
-		tmp1++;
-		tmp2++;
+		*tmp1++ = *tmp2++;
 		i++;
 	}
 	return (s1);

@@ -6,12 +6,14 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:30:53 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 14:17:04 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 14:38:12 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strequ(char const *s1, char const *s2)
 {
+	if (!s1 || !s2)
+		return 0;
 	while (*s1 || *s2)
 	{
 		if (*s1 != *s2)

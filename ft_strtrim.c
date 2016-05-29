@@ -6,37 +6,40 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:43:55 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 13:31:45 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 17:56:02 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strtrim(char const *s)
 {
-	int		i;
-	int		b;
-	int		c;
-	char	*tmp;
+	char		*res;
+	char const	*s1;
+	size_t		len;
 
-	i = 0;
-	b = 0;
-	c = ft_strlen(s) - 1;
-	while (s[b] == ' ' || s[b] == '\n' || s[b] == '\t')
-		b++;
-	while ((s[c] == ' ' || s[c] == '\n' || s[c] == '\t') && c > b)
-		c--;
-	tmp = (char*)malloc(sizeof(s) * ((c - b) + 1));
-	if (tmp)
+	if (!s)
+		return NULL;
+	s1 = s;
+	while (*s1)
+		s1++;
+	while (*s == ' ' || *s == '\n' || *s == '\t')
+		s++;
+	while ((*(s1 - 1) == ' ' || *(s1 - 1) == '\n' || *(s1 - 1) == '\t'))
+		s1--;
+	len = s1 - s < 0 ? 0 : s1 - s;
+	res = (char *)malloc(sizeof(*s) * (len + 1));
+	if (res != NULL)
 	{
-		if (c - b >= 0)
-		{
-			while (b <= c)
-				tmp[i++] = s[b++];
+		while (s < s1){
+			*res++ = *s++;
 		}
-		tmp[i] = 0;
-		return (tmp);
+		*res = '\0';
+		return res - len;
 	}
-	return (NULL);
+	else if (res)
+		return res;
+	return NULL;
 }

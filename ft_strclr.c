@@ -6,12 +6,15 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:27:03 by glasset           #+#    #+#             */
-/*   Updated: 2013/11/26 12:46:27 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 14:26:37 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_strclr(char *s)
 {
-	while (*s)
-		*s++ = 0;
+	if (s)
+	{
+		while (*s)
+			*s++ = 0;
+	}
 }

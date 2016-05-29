@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/29 17:26:31 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 14:32:30 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 17:42:51 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,20 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*new;
 	t_list	*tmp;
-	t_list	**alst;
+	t_list	*res;
 
-	alst = NULL;
-	if (f)
+	if (!f && !lst)
+		return NULL;
+	tmp = f(lst);
+	res = ft_lstnew(tmp->content, tmp->content_size);
+	tmp = res;
+	lst = lst->next;
+	while (lst)
 	{
-		tmp = ft_lstnew(lst->content, lst->content_size);
-		tmp = f(tmp);
-		alst = &tmp;
+		new = f(lst);
+		tmp->next = ft_lstnew(new->content, new->content_size);
+		tmp = tmp->next;
 		lst = lst->next;
-		while (lst)
-		{
-			new = ft_lstnew(lst->content, lst->content_size);
-			new = f(new);
-			tmp->next = new;
-			lst = lst->next;
-		}
 	}
-	return (*alst);
+	return res;
 }

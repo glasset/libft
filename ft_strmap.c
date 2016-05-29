@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:52:18 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 14:17:40 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 14:35:17 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	int		i;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	tmp = (char*)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (tmp)
 	{

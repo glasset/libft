@@ -6,18 +6,15 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:50:48 by glasset           #+#    #+#             */
-/*   Updated: 2013/11/26 17:32:51 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/29 14:34:24 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	int		i;
-
-	i = 0;
-	while (s[i])
+	if (s && f)
 	{
-		f(&s[i]);
-		i++;
+		while (*s)
+			f(s++);
 	}
 }

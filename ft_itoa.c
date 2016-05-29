@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:45:22 by glasset           #+#    #+#             */
-/*   Updated: 2015/03/04 13:30:27 by glasset          ###   ########.fr       */
+/*   Updated: 2016/05/28 18:48:21 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ char				*ft_itoa(int n)
 
 	i = ft_lint(n);
 	c = (char*)malloc(sizeof(char) * (i + 1));
+	if (c == NULL)
+	{
+		return NULL;
+	}
 	c[i] = '\0';
 	if (n != 0)
 	{

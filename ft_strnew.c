@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 16:48:50 by glasset           #+#    #+#             */
-/*   Updated: 2016/05/28 18:40:52 by Guillaume Lasset ###   ########.fr       */
+/*   Updated: 2016/05/28 19:36:13 by Guillaume Lasset ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_strnew(size_t size)
 {
 	char	*tmp;
 
-	tmp = (char *)malloc(size + 1);
-	if (tmp)
+	tmp = (char *)malloc(sizeof(char) * size + 1);
+	if (tmp != NULL)
 	{
-		ft_bzero(tmp, size);
+		ft_bzero(tmp, size + 1);
 		return (tmp);
 	}
 	return (NULL);
