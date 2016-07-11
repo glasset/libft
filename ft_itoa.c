@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:45:22 by glasset           #+#    #+#             */
-/*   Updated: 2016/05/28 18:48:21 by Guillaume Lasset ###   ########.fr       */
+/*   Updated: 2016/07/11 13:26:46 by glasset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ char				*ft_itoa(int n)
 	unsigned int	f;
 
 	i = ft_lint(n);
-	c = (char*)malloc(sizeof(char) * (i + 1));
-	if (c == NULL)
-	{
-		return NULL;
-	}
+	if (!(c = (char*)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
 	c[i] = '\0';
+	n != 0 ? n != 0 : (c[0] = '0');
 	if (n != 0)
 	{
 		if (n < 0)
@@ -64,7 +62,5 @@ char				*ft_itoa(int n)
 			f = f / 10;
 		}
 	}
-	else
-		c[0] = '0';
 	return (c);
 }

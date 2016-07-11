@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:53:18 by glasset           #+#    #+#             */
-/*   Updated: 2016/05/29 14:35:58 by Guillaume Lasset ###   ########.fr       */
+/*   Updated: 2016/07/11 10:08:56 by glasset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,15 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	if (s == NULL || f == NULL)
-		return NULL;
+		return (NULL);
 	tmp = (char*)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (tmp == NULL)
-		return NULL;
+		return (NULL);
 	while (s[i])
 	{
 		tmp[i] = f(i, s[i]);
 		i++;
 	}
 	tmp[i] = '\0';
-
 	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: glasset <glasset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 18:44:40 by glasset           #+#    #+#             */
-/*   Updated: 2016/05/29 17:44:22 by Guillaume Lasset ###   ########.fr       */
+/*   Updated: 2016/07/11 13:32:18 by glasset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,26 @@ static int		ft_count(char const *s, char c)
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**tmp;
-	int		j;
-	int		q;
-	int		t[2];
+	int		t[4];
 
 	t[0] = 0;
 	if (!s || !c)
-		return NULL;
-	q = ft_count(s, c);
-	tmp = (char **)malloc(sizeof(char *) * (q + 1));
-	if (!tmp)
-	{
-		return NULL;
-	}
-	while (*s && q > t[0])
+		return (NULL);
+	t[3] = ft_count(s, c);
+	if (!(tmp = (char **)malloc(sizeof(char *) * (t[3] + 1))))
+		return (NULL);
+	while (*s && t[3] > t[0])
 	{
 		t[1] = 0;
-		j = 0;
+		t[2] = 0;
 		while (*s == c)
 			s++;
 		while (s[t[1]] != c && s[t[1]])
 			t[1]++;
-		tmp[t[0]] = (char *)malloc(sizeof(char) * (t[1] + 1));
-		if (tmp[t[0]] == 0 && tmp == 0)
+		if (!(tmp[t[0]] = malloc(sizeof(char) * (t[1] + 1))) && tmp == 0)
 			return (NULL);
-		while (t[1] > j && (*s != c || *s != '\0'))
-			tmp[t[0]][j++] = *s++;
+		while (t[1] > t[2] && (*s != c || *s != '\0'))
+			tmp[t[0]][t[2]++] = *s++;
 		tmp[t[0]++][t[1]] = 0;
 	}
 	tmp[t[0]] = NULL;
